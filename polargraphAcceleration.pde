@@ -22,8 +22,8 @@ class Machine {
     x=w/2;
     y=h/2;
     p = 4.0/PI;
-    k1=100;
-    k2=100;
+    k1=200;
+    k2=200;
   }
   
   // update l,r based on x,y and w,h
@@ -54,7 +54,7 @@ class Machine {
 
 Machine actual;
 final float GRAVITYx=0;
-final float GRAVITYy=9.8;
+final float GRAVITYy=98;
 
 
 void setup() {
@@ -106,13 +106,13 @@ void draw() {
   actual.x+R1x*10,
   actual.y+R1y*10);
 
-  stroke(0,255,255);
+  stroke(0,255,0);
   line(actual.x,
   actual.y,
   actual.x+R2x*10,
   actual.y+R2y*10);
   
-  stroke(255,0,255);
+  stroke(255,0,0);
   line(actual.x,
   actual.y,
   actual.x+GRAVITYx*10,
@@ -124,6 +124,7 @@ void draw() {
   float bx = R2x * actual.k2 + GRAVITYx;
   float by = R2y * actual.k2 + GRAVITYy;
     
+  stroke(255,255,0);
   triangle(
     actual.x+ax,
     actual.y+ay,
@@ -156,7 +157,7 @@ void draw() {
     else cT=c2;
 
     // You maximum acceleration is given by cT.
-    stroke(255,255,0);
+    stroke(0,255,255);
     point(
       actual.x+Tx * cT,
       actual.y+Ty * cT
