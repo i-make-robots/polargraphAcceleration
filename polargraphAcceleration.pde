@@ -100,8 +100,10 @@ void draw() {
   actual.IK();
   actual.FK();
   
+  // normal vectors pointing from plotter to motor
   float R1x = (    0 - actual.x) / actual.l;
   float R1y = (    0 - actual.y) / actual.l;
+  
   float R2x = (width - actual.x) / actual.r;
   float R2y = (    0 - actual.y) / actual.r;
   
@@ -123,12 +125,15 @@ void draw() {
     float c1 = -GRAVITYy*GRAVITYmag * R1x / (Tx*R1y - Ty*R1x);
     float c2 = -GRAVITYy*GRAVITYmag * R2x / (Tx*R2y - Ty*R2x);
     
-    println(i+"\t"+c1+"\t"+c2);
+    //println(i+"\t"+c1+"\t"+c2);
     
     float cT=0;
     // If c is negative, that means that that support rope doesn't limit the
     // acceleration; discard that c.
-    if( c1<0 && c2<0 ) continue;
+    if( c1<0 && c2<0 ) {
+      continue;
+    }
+    
     // If c is positive in both cases, take the smaller one.
     if( c1>0 && c2>0 ) {
       cT = ( c1 < c2 ) ? c1 : c2;
