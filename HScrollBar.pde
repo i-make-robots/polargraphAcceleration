@@ -80,7 +80,6 @@ class HScrollBar {
   // move the slider to a value between 0 and 1
   void setPos(float v) {
     spos = xpos + v * (swidth / ratio);
-    println("v="+v+"\tspos="+spos);
     spos = constrain(spos, sposMin, sposMax);
   }
 }
